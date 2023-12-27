@@ -1,3 +1,4 @@
+# ~/.config/i3/config
 set $mod Mod4
 
 font pango:monospace 8
