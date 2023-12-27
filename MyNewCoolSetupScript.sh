@@ -9,6 +9,7 @@ flatpak --noninteractive install flathub md.obsidian.Obsidian
 flatpak --noninteractive install flathub cc.arduino.IDE2
 flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub com.ticktick.TickTick
+flatpak --noninteractive install flathub org.prismlauncher.PrismLauncher
 
 # System Configs
 echo -e "Section \"InputClass\"\n        Identifier \"libinput touchpad catchall\"\n        MatchIsTouchpad \"\n        MatchDevicePath \"/dev/input/event*\"\n        Driver \"libinput\"\n        Option \"NaturalScrolling\" \"True\"\n        Option \"Tapping\" \"on\"\nEndSection" | sudo tee -a /usr/share/X11/xorg.conf.d/50-libinput.conf > /dev/null
@@ -38,6 +39,14 @@ sudo apt install ./GitHubDesktop-linux-3.1.1-linux1.deb
 wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/code_1.85.1-1702462158_amd64.deb
 sudo apt install ./code_1.85.1-1702462158_amd64.deb
 
+# Install Font Awesome
+cd ~/Applications
+wget https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip
+unzip fontawesome-free-6.5.1-desktop.zip
+cd fontawesome-free-6.5.1-desktop
+cd otfs
+sudo mkdir /usr/share/fonts/opentype/FA/
+sudo cp 'Font Awesome 6 Free-Solid-900.otf' /usr/share/fonts/opentype/FA/
 
 # Install custom dmenu
 cd ~/Applications
@@ -105,6 +114,15 @@ wget https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher
 echo -e "[Desktop Entry]\nName=Balena Etcher\nGenericName=ISO Writer\nExec=/home/flicker/Applications/BalenaEtcher/balenaEtcher-*-x64.AppImage\nType=Application\nTerminal=false\n" >> ~/.local/share/applications/balena.desktop
 chmod +x /home/flicker/Applications/BalenaEtcher/balenaEtcher-*-x64.AppImage
 
+# Install ardour
+cd ~/Applications
+git clone https://github.com/Ardour/ardour.git
+cd ardour
+sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev libglibmm-2.4-dev libsndfile1-dev libcurl-ocaml-dev libarchive-dev liblo-dev libtaglib-ocaml-dev vamp-plugin-sdk librubberband-dev clang libaubio-dev libcppunit-dev libwebsockets-dev libclang-dev libudev-dev libpulse-dev libusb-1.0-0-dev libpangomm-1.4-dev liblrdf0-dev lv2-dev libserd-dev libsord-dev libsratom-dev liblilv-dev libsuil-dev libgtkmm-2.4-dev libjack-dev
+./waf configure
+./waf
+./waf clean
+echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
@@ -127,7 +145,11 @@ ln -s ~/PortableConfigs/SublimeLinter.sublime-settings ~/.config/sublime-text/Pa
 ln -s ~/PortableConfigs/config ~/.config/i3/
 
 
-# TODO: mouse stuff, ticktick, ardour, ffw & ffd
+# TODO: mouse stuff, ardour, ffw & ffd, osu, mgba, aquakeytest/wine, python-umonitor
 
 # wget https://download-installer.cdn.mozilla.net/pub/devedition/releases/122.0b3/linux-x86_64/en-US/firefox-122.0b3.tar.bz2
+# alias sa="apt list | grep -i "
+# alias aa="sudo apt -y install "
+
+sudo apt autoremove
 
