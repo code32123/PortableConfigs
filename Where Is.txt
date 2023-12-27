@@ -1,0 +1,54 @@
+Themes-boot:	/usr/share/plymouth/themes/Jimmy 											(update-initramfs -u)
+Themes-gnome:	/usr/share/themes/Jimmy
+				/usr/share/themes/Jimmy/gtk.css
+
+Packages:		~/Applcations/
+Exeutables:		/usr/local/bin/
+Desktop:		/home/flicker/.local/share/applications/
+				/usr/share/applications
+	(Flathub)	/var/lib/flatpak/app/io.lmms.LMMS/current/active/files/share/applications/
+
+Variables:		/etc/environment
+
+Config:
+ Rofi:			~/.config/rofi/config.rasi
+ Grub:			/etc/default/grub															(update-grub)
+
+File Manager:
+ Mime:			/usr/share/mime/packages/jimmy_custom.xml									(update-mime-database /usr/share/mime)
+ Icons:			/usr/share/icons/Jimmy/scalable/mimetypes/application-qtcreator.svg			(update-icon-caches /usr/share/icons/*)
+ Open with:		~/.config/mimeapps.list
+
+Inputs:
+ hwdb:			/usr/lib/udev/hwdb.d/mouse.hwdb												(systemd-hwdb update && udevadm trigger /sys/class/input/event19)
+ xmodmap:		~/.Xmodmap
+ pointing:		/usr/share/X11/xorg.conf.d/40-libinput.conf
+
+Autorun:		~/.profile
+
+i3:
+ cfg:			~/.config/i3/config															(Win+Shift+R)
+ i3status:		/etc/i3status.conf
+ ^ music		~/.config/i3/config/i3status_music_wrapper.py
+ polybar		~/.config/polybar/config.ini
+
+Kitty.conf:		~/.config/kitty/kitty.conf 													(Ctrl+Shift+F5)
+Sublime:		~/.config/sublime-text/Packages/User/
+
+Notes:
+Theme color (Zorin): #BDE6FB
+
+Monitorcfg:
+xrandr --output DP-2 --mode 3840x2160 --left-of eDP-1
+xrandr --output DP-2 --off
+
+
+
+Keyboard Commands:
+    Alt-K        xkill
+	Win+k        rofi -show filebrowser
+	Win+Space    rofi -run-command "kitty {cmd}" -show run
+	Alt+Space    rofi -sort -sorting-method "fzf" -show drun
+	Win+T        kitty
+
+	In InputRemapper, alt+tab: key_down(KEY_LEFTALT).key(KEY_TAB).hold().key_up(KEY_LEFTALT)
