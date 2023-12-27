@@ -3,13 +3,14 @@ sudo apt upgrade
 
 # Simple Installations
 mkdir ~/Applications/
-sudo apt -y install i3 git golang-go polybar make cmake flatpak gnome-software-plugin-flatpak meld curl xss-lock i3lock policykit-1-gnome python3-setuptools gettext gparted libfuse2 gimp jackd qjackctl
+sudo apt -y install i3 git golang-go polybar make cmake flatpak gnome-software-plugin-flatpak meld curl xss-lock i3lock policykit-1-gnome python3-setuptools gettext gparted libfuse2 gimp jackd qjackctl wine
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub md.obsidian.Obsidian
 flatpak --noninteractive install flathub cc.arduino.IDE2
-flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub com.ticktick.TickTick
 flatpak --noninteractive install flathub org.prismlauncher.PrismLauncher
+flatpak --noninteractive install flathub io.mgba.mGBA
 
 # System Configs
 echo -e "Section \"InputClass\"\n        Identifier \"libinput touchpad catchall\"\n        MatchIsTouchpad \"\n        MatchDevicePath \"/dev/input/event*\"\n        Driver \"libinput\"\n        Option \"NaturalScrolling\" \"True\"\n        Option \"Tapping\" \"on\"\nEndSection" | sudo tee -a /usr/share/X11/xorg.conf.d/50-libinput.conf > /dev/null
@@ -43,10 +44,9 @@ sudo apt install ./code_1.85.1-1702462158_amd64.deb
 cd ~/Applications
 wget https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip
 unzip fontawesome-free-6.5.1-desktop.zip
-cd fontawesome-free-6.5.1-desktop
-cd otfs
+rm fontawesome-free-6.5.1-desktop.zip
 sudo mkdir /usr/share/fonts/opentype/FA/
-sudo cp 'Font Awesome 6 Free-Solid-900.otf' /usr/share/fonts/opentype/FA/
+sudo cp 'fontawesome-free-6.5.1-desktop/otfs/Font Awesome 6 Free-Solid-900.otf' /usr/share/fonts/opentype/FA/
 
 # Install custom dmenu
 cd ~/Applications
@@ -107,12 +107,18 @@ sudo chmod a+wr /usr/share/spotify/Apps -R
 /home/flicker/.spicetify/spicetify backup apply
 
 # Install Balena Etcher
-cd ~/Applications
-mkdir BalenaEtcher
-cd BalenaEtcher
+mkdir ~/Applications/BalenaEtcher
+cd ~/Applications/BalenaEtcher
 wget https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-1.18.11-x64.AppImage
+chmod +x /home/flicker/Applications/BalenaEtcher/balenaEtcher-1.18.11-x64.AppImage
 echo -e "[Desktop Entry]\nName=Balena Etcher\nGenericName=ISO Writer\nExec=/home/flicker/Applications/BalenaEtcher/balenaEtcher-*-x64.AppImage\nType=Application\nTerminal=false\n" >> ~/.local/share/applications/balena.desktop
-chmod +x /home/flicker/Applications/BalenaEtcher/balenaEtcher-*-x64.AppImage
+
+# Install osu!
+mkdir ~/Applications/osu
+cd ~/Applications/osu
+wget https://github.com/ppy/osu/releases/latest/download/osu.AppImage
+chmod +x osu.AppImage
+echo -e "[Desktop Entry]\nName=osu\nExec=/home/flicker/Applications/osu/osu.AppImage\nType=Application\nTerminal=false\nCategories=Game" >> ~/.local/share/applications/osu.desktop
 
 # Install ardour
 cd ~/Applications
@@ -123,6 +129,37 @@ sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev
 ./waf
 ./waf clean
 echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
+
+# Firefox Modifications
+cd ~/Applications
+wget https://download-installer.cdn.mozilla.net/pub/devedition/releases/122.0b3/linux-x86_64/en-US/firefox-122.0b3.tar.bz2
+tar -xf firefox-122.0b3.tar.bz2
+rm firefox-122.0b3.tar.bz2
+mv firefox firefoxdev
+echo -e "[Desktop Entry]\nName=Firefox Dev\nExec=/home/flicker/Applications/firefoxdev/firefox\nGenericName=Web Browser\nType=Application\nTerminal=false\nCategories=Web;Firefox;ff;ffd;" >> ~/.local/share/applications/FirefoxDev.desktop
+echo -e "[Desktop Entry]\nName=Firefox Web\nExec=firefox %u\nTerminal=false\nX-MultipleArgs=false\nType=Application\nIcon=firefox\nCategories=Web;Firefox;ff;ffw;\nMimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;\nStartupNotify=true" >> ~/.local/share/applications/FirefoxWeb.desktop
+
+# Install REX Paint
+cd ~/Applications
+wget 'https://www.gridsagegames.com/blogs/fileDownload.php?fileName=REXPaint-v1.60.zip' -O REXPaint-v1.60.zip
+unzip "REXPaint-v1.60.zip"
+rm "REXPaint-v1.60.zip"
+echo -e "[Desktop Entry]\nName=REXPaint\nGenericName=Ascii Art Editor\nExec=bash -c 'cd /home/flicker/Applications/REXPaint-v1.60/ && wine REXPaint.exe'\nType=Application\nTerminal=false" >> ~/.local/share/applications/REXPaint.desktop
+
+# Install Aqua Key Test
+mkdir ~/Applications/aquakeytest
+cd ~/Applications/aquakeytest
+wget 'https://geekhack.org/index.php?action=dlattach;topic=34670.0;attach=2245' -O aquakeytest.exe
+echo -e "[Desktop Entry]\nName=AquaKeyTest\nExec=wine /home/flicker/Applications/aquakeytest/aquakeytest.exe\nType=Application\nTerminal=false\nCategories=Keyboard" >> ~/.local/share/applications/AquaKeyTest.desktop
+
+# Install Write
+cd ~/Applications
+wget http://www.styluslabs.com/download/write-tgz -O write.tar.gz
+tar -xf write.tar.gz
+rm write.tar.gz
+cd Write
+./setup.sh
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
@@ -145,11 +182,9 @@ ln -s ~/PortableConfigs/SublimeLinter.sublime-settings ~/.config/sublime-text/Pa
 ln -s ~/PortableConfigs/config ~/.config/i3/
 
 
-# TODO: mouse stuff, ardour, ffw & ffd, osu, mgba, aquakeytest/wine, python-umonitor
+# TODO: mouse stuff, python-umonitor
 
-# wget https://download-installer.cdn.mozilla.net/pub/devedition/releases/122.0b3/linux-x86_64/en-US/firefox-122.0b3.tar.bz2
 # alias sa="apt list | grep -i "
 # alias aa="sudo apt -y install "
 
 sudo apt autoremove
-
