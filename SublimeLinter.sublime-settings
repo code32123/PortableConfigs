@@ -1,0 +1,9 @@
+// SublimeLinter Settings - User
+{
+	// "debug": true,
+    "linters": {
+        "flake8": {
+            "args" : "--ignore E303,E302,W191,E501,E221,E241"
+        }
+    }
+}

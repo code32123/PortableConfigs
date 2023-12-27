@@ -39,6 +39,7 @@ bindsym $mod+Return exec kitty
 
 bindsym $mod+q kill
 
+bindsym $mod+d exec dmenu_run
 bindsym Mod1+space exec --no-startup-id j4-dmenu-desktop --no-generic -c -d"dmenu -i -j"
 
 # change focus

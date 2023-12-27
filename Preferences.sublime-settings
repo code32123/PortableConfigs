@@ -1,0 +1,18 @@
+{
+	"theme": "auto",
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"caret_extra_top": 0,
+	"caret_extra_bottom": 0,
+	"caret_extra_width": 1,
+	"caret_style": "smooth",
+	"font_size": 16,
+	"index_files": true,
+	// "auto_complete": false,
+	// "auto_complete_commit_on_tab": false,
+	"tab_completion": false,
+	"auto_complete_selector": "meta.tag, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc - constant.numeric.integer.hexadecimal.assembly",
+}
