@@ -125,7 +125,6 @@ wget https://github.com/Ultimaker/Cura/releases/download/5.6.0/UltiMaker-Cura-5.
 chmod +x /home/flicker/Applications/Cura/UltiMaker-Cura-5.6.0-linux-X64.AppImage
 echo -e "[Desktop Entry]\nName=Ultimaker Cura\nGenericName=ISO Writer\nExec=/home/flicker/Applications/Cura/UltiMaker-Cura-5.6.0-linux-X64.AppImage\nType=Application\nTerminal=false\n" >> ~/.local/share/applications/cura.desktop
 
-
 # Install osu!
 mkdir ~/Applications/osu
 cd ~/Applications/osu
@@ -180,6 +179,11 @@ sudo apt -y install inkscape
 cd ~/Applications/"Debian Files"
 wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
 sudo apt -y install ./discord.deb
+
+# Install Insomnia
+cd ~/Applications/"Debian Files"
+wget 'https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website' -O Insomnia.deb
+sudo apt -y install ./Insomnia.deb
 
 # Install ardour
 cd ~/Applications
