@@ -11,6 +11,8 @@ flatpak --noninteractive install flathub cc.arduino.IDE2
 flatpak --noninteractive install flathub com.ticktick.TickTick
 flatpak --noninteractive install flathub org.prismlauncher.PrismLauncher
 flatpak --noninteractive install flathub io.mgba.mGBA
+flatpak --noninteractive install flathub org.kde.krita
+flatpak --noninteractive install flathub org.gnome.GHex
 
 # System Configs
 echo -e "Section \"InputClass\"\n        Identifier \"libinput touchpad catchall\"\n        MatchIsTouchpad \"\n        MatchDevicePath \"/dev/input/event*\"\n        Driver \"libinput\"\n        Option \"NaturalScrolling\" \"True\"\n        Option \"Tapping\" \"on\"\nEndSection" | sudo tee -a /usr/share/X11/xorg.conf.d/50-libinput.conf > /dev/null
@@ -19,15 +21,16 @@ echo -e "export GDK_SCALE=2\nxrandr --dpi 180\n" >> ~/.profile
 # Install Sublime Text
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update
-sudo apt-get install sublime-text
+sudo apt update
+sudo apt -y install sublime-text
 
 # Install Kitty
 cd ~/Applications
 git clone https://github.com/kovidgoyal/kitty.git
 cd kitty
-sudo apt install libdbus-1-dev libxcursor-dev libxrandr-dev libxi-dev libxinerama-dev libgl1-mesa-dev libxkbcommon-x11-dev libfontconfig-dev libx11-xcb-dev liblcms2-dev libssl-dev libpython3-dev libxxhash-dev
+sudo apt -y install libdbus-1-dev libxcursor-dev libxrandr-dev libxi-dev libxinerama-dev libgl1-mesa-dev libxkbcommon-x11-dev libfontconfig-dev libx11-xcb-dev liblcms2-dev libssl-dev libpython3-dev libxxhash-dev
 ./dev.sh build
+mkdir ~/bin/
 ln -s ~/Applications/kitty/kitty/launcher/kitty ~/bin/kitty
 
 echo -e "[Desktop Entry]\nName=Kitty\nExec=/home/flicker/Applications/kitty/kitty/launcher/kitty\nGenericName=Terminal Emulator\nType=Application\nTerminal=false\nIcon=/home/flicker/Applications/kitty/kitty/launcher/kitty.ico\n" >> ~/.local/share/applications/kitty.desktop
@@ -57,14 +60,13 @@ sudo make clean install
 
 # Install custom j4-dmenu-desktop
 cd ~/Applications
-git pull https://github.com/code32123/j4-dmenu-desktop.git
 git clone https://github.com/code32123/j4-dmenu-desktop.git
 cd j4-dmenu-desktop
 cmake .
 make
 sudo make install
 
-# Install & Config Syncthing
+# Install Syncthing
 sudo apt install syncthing
 sudo systemctl enable syncthing@flicker
 sudo systemctl start syncthing@flicker
@@ -76,22 +78,23 @@ sudo apt update
 sudo apt install bespokesynth
 
 # Install Steam
-sudo add-apt-repository multiverse
+sudo add-apt-repository -y multiverse
 sudo dpkg --add-architecture i386
 sudo apt update
-sudo apt install steam
+sudo apt -y install steam
 
 # Install Input-Remapper
 cd ~/Applications
 git clone https://github.com/sezanzeb/input-remapper.git
 cd input-remapper
 ./scripts/build.sh
-sudo apt install -f ./dist/input-remapper-2.0.1.deb
+sudo apt -y install -f ./dist/input-remapper-2.0.1.deb
 
 # Install Spotify and Spicetify
 curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get install spotify-client
+sudo apt-get update
+sudo apt-get install spotify-client
 curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
 rm install.log
 
@@ -102,6 +105,8 @@ mkdir -p ~/.config/spicetify/Themes/Sleek/
 cp -r ./Sleek/* ~/.config/spicetify/Themes/Sleek/
 sudo chmod a+wr /usr/share/spotify
 sudo chmod a+wr /usr/share/spotify/Apps -R
+mkdir ~/.config/spotify/
+touch ~/.config/spotify/prefs
 /home/flicker/.spicetify/spicetify config current_theme Sleek
 /home/flicker/.spicetify/spicetify config color_scheme coral
 /home/flicker/.spicetify/spicetify backup apply
@@ -120,16 +125,6 @@ wget https://github.com/ppy/osu/releases/latest/download/osu.AppImage
 chmod +x osu.AppImage
 echo -e "[Desktop Entry]\nName=osu\nExec=/home/flicker/Applications/osu/osu.AppImage\nType=Application\nTerminal=false\nCategories=Game" >> ~/.local/share/applications/osu.desktop
 
-# Install ardour
-cd ~/Applications
-git clone https://github.com/Ardour/ardour.git
-cd ardour
-sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev libglibmm-2.4-dev libsndfile1-dev libcurl-ocaml-dev libarchive-dev liblo-dev libtaglib-ocaml-dev vamp-plugin-sdk librubberband-dev clang libaubio-dev libcppunit-dev libwebsockets-dev libclang-dev libudev-dev libpulse-dev libusb-1.0-0-dev libpangomm-1.4-dev liblrdf0-dev lv2-dev libserd-dev libsord-dev libsratom-dev liblilv-dev libsuil-dev libgtkmm-2.4-dev libjack-dev
-./waf configure
-./waf
-./waf clean
-echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
-
 # Firefox Modifications
 cd ~/Applications
 wget https://download-installer.cdn.mozilla.net/pub/devedition/releases/122.0b3/linux-x86_64/en-US/firefox-122.0b3.tar.bz2
@@ -138,6 +133,7 @@ rm firefox-122.0b3.tar.bz2
 mv firefox firefoxdev
 echo -e "[Desktop Entry]\nName=Firefox Dev\nExec=/home/flicker/Applications/firefoxdev/firefox\nGenericName=Web Browser\nType=Application\nTerminal=false\nCategories=Web;Firefox;ff;ffd;" >> ~/.local/share/applications/FirefoxDev.desktop
 echo -e "[Desktop Entry]\nName=Firefox Web\nExec=firefox %u\nTerminal=false\nX-MultipleArgs=false\nType=Application\nIcon=firefox\nCategories=Web;Firefox;ff;ffw;\nMimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;\nStartupNotify=true" >> ~/.local/share/applications/FirefoxWeb.desktop
+sudo rm /usr/share/applications/firefox.desktop
 
 # Install REX Paint
 cd ~/Applications
@@ -160,10 +156,36 @@ rm write.tar.gz
 cd Write
 ./setup.sh
 
+# Install OBS
+sudo add-apt-repository -y ppa:obsproject/obs-studio
+sudo apt -y install obs-studio
+
+# Install kdenlive
+sudo add-apt-repository -y ppa:kdenlive/kdenlive-stable
+sudo apt -y install kdenlive
+
+# Install Inkscape
+sudo add-apt-repository -y ppa:inkscape.dev/stable
+sudo apt -y install inkscape
+
+# Install Discord
+cd ~/Applications/"Debian Files"
+wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
+sudo apt -y install ./discord.deb
+
+# Install ardour
+cd ~/Applications
+git clone https://github.com/Ardour/ardour.git
+cd ardour
+sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev libglibmm-2.4-dev libsndfile1-dev libcurl-ocaml-dev libarchive-dev liblo-dev libtaglib-ocaml-dev vamp-plugin-sdk librubberband-dev clang libaubio-dev libcppunit-dev libwebsockets-dev libclang-dev libudev-dev libpulse-dev libusb-1.0-0-dev libpangomm-1.4-dev liblrdf0-dev lv2-dev libserd-dev libsord-dev libsratom-dev liblilv-dev libsuil-dev libgtkmm-2.4-dev
+./waf configure
+./waf
+./waf clean
+echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
-
 mkdir ~/.config/kitty/
 ln -s ~/PortableConfigs/kitty.conf ~/.config/kitty/kitty.conf
 
@@ -174,15 +196,19 @@ cp ~/PortableConfigs/player-mpris-tail.py ~/.config/polybar/player-mpris-tail.py
 cp ~/PortableConfigs/battery-combined-udev.sh ~/.config/polybar/battery-combined-udev.sh
 sudo cp ~/PortableConfigs/95-battery.rules /etc/udev/rules.d/95-battery.rules
 
+mkdir -p ~/.config/sublime-text/Packages/User/
 ln -s ~/PortableConfigs/Default.sublime-mousemap ~/.config/sublime-text/Packages/User/Default.sublime-mousemap
 ln -s ~/"PortableConfigs/Default (Linux).sublime-keymap" ~/.config/sublime-text/Packages/User/
 ln -s ~/PortableConfigs/Preferences.sublime-settings ~/.config/sublime-text/Packages/User/Preferences.sublime-settings
 ln -s ~/PortableConfigs/SublimeLinter.sublime-settings ~/.config/sublime-text/Packages/User/SublimeLinter.sublime-settings
 
+mkdir ~/.config/i3/
 ln -s ~/PortableConfigs/config ~/.config/i3/
 
+ln -s ~/PortableConfigs/"Where Is.txt" ~/
 
-# TODO: mouse stuff, python-umonitor
+
+# TODO: mouse stuff, python-umonitor, quassel
 
 # alias sa="apt list | grep -i "
 # alias aa="sudo apt -y install "
