@@ -118,6 +118,14 @@ wget https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher
 chmod +x /home/flicker/Applications/BalenaEtcher/balenaEtcher-1.18.11-x64.AppImage
 echo -e "[Desktop Entry]\nName=Balena Etcher\nGenericName=ISO Writer\nExec=/home/flicker/Applications/BalenaEtcher/balenaEtcher-*-x64.AppImage\nType=Application\nTerminal=false\n" >> ~/.local/share/applications/balena.desktop
 
+# Install Ultimaker Cura
+mkdir ~/Applications/Cura
+cd ~/Applications/Cura
+wget https://github.com/Ultimaker/Cura/releases/download/5.6.0/UltiMaker-Cura-5.6.0-linux-X64.AppImage
+chmod +x /home/flicker/Applications/Cura/UltiMaker-Cura-5.6.0-linux-X64.AppImage
+echo -e "[Desktop Entry]\nName=Ultimaker Cura\nGenericName=ISO Writer\nExec=/home/flicker/Applications/Cura/UltiMaker-Cura-5.6.0-linux-X64.AppImage\nType=Application\nTerminal=false\n" >> ~/.local/share/applications/cura.desktop
+
+
 # Install osu!
 mkdir ~/Applications/osu
 cd ~/Applications/osu
