@@ -175,13 +175,19 @@ sudo apt -y install kdenlive
 sudo add-apt-repository -y ppa:inkscape.dev/stable
 sudo apt -y install inkscape
 
-# Install Discord
+
+##### DEBIAN PACKAGES
 cd ~/Applications/"Debian Files"
+
+# Vital Synth
+# wget "https://account.vital.audio/VitalInstaller.deb?idToken=" -O VitalInstaller.deb
+# sudo apt -y install ./VitalInstaller.deb
+
+# Install Discord
 wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
 sudo apt -y install ./discord.deb
 
 # Install Insomnia
-cd ~/Applications/"Debian Files"
 wget 'https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website' -O Insomnia.deb
 sudo apt -y install ./Insomnia.deb
 
