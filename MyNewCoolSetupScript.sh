@@ -199,6 +199,12 @@ sudo apt -y install ./aimp.deb
 wget "https://zoom.us/client/5.17.1.1840/zoom_amd64.deb"
 sudo apt -y install ./zoom_amd64.deb
 
+# Install FAF
+cd ~/Applications
+curl -L -O https://github.com/FAForever/downlords-faf-client/releases/download/v2022.4.1/faf_unix_2022_4_1.tar.gz>
+mkdir -p ~/faf
+tar -xf faf_unix_2022_4_1.tar.gz -C ~/faf/
+
 # Install ardour
 cd ~/Applications
 git clone https://github.com/Ardour/ardour.git
