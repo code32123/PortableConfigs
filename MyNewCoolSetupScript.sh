@@ -191,6 +191,10 @@ sudo apt -y install ./discord.deb
 wget 'https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website' -O Insomnia.deb
 sudo apt -y install ./Insomnia.deb
 
+# Install AIMP
+wget "https://www.aimp.ru/?do=download.file&id=26" -O aimp.deb
+sudo apt -y install ./aimp.deb
+
 # Install ardour
 cd ~/Applications
 git clone https://github.com/Ardour/ardour.git
