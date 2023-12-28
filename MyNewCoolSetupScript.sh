@@ -188,12 +188,16 @@ wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
 sudo apt -y install ./discord.deb
 
 # Install Insomnia
-wget 'https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website' -O Insomnia.deb
+wget "https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website" -O Insomnia.deb
 sudo apt -y install ./Insomnia.deb
 
 # Install AIMP
 wget "https://www.aimp.ru/?do=download.file&id=26" -O aimp.deb
 sudo apt -y install ./aimp.deb
+
+# Install Zoom
+wget "https://zoom.us/client/5.17.1.1840/zoom_amd64.deb"
+sudo apt -y install ./zoom_amd64.deb
 
 # Install ardour
 cd ~/Applications
