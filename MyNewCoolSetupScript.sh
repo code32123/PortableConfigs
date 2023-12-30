@@ -3,7 +3,7 @@ sudo apt upgrade
 
 # Simple Installations
 mkdir ~/Applications/
-sudo apt -y install i3 git golang-go polybar make cmake flatpak gnome-software-plugin-flatpak meld curl xss-lock i3lock policykit-1-gnome python3-setuptools gettext gparted libfuse2 gimp jackd qjackctl wine pulseaudio-utils
+sudo apt -y install i3 git golang-go polybar make cmake flatpak gnome-software-plugin-flatpak meld curl xss-lock i3lock policykit-1-gnome python3-setuptools gettext gparted libfuse2 gimp jackd qjackctl wine pulseaudio-utils dconf-editor
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub md.obsidian.Obsidian
