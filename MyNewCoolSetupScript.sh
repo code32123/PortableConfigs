@@ -216,6 +216,15 @@ sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev
 ./waf clean
 echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
 
+# Replace open in gnome terminal with open in kitty
+sudo apt remove nautilus-extension-gnome-terminal
+cd ~/Applications
+git clone https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
+cd nautilus-open-any-terminal
+./tools/update-extension-user.sh install
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+nautilus -q
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
