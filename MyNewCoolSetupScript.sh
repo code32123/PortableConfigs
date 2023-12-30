@@ -201,9 +201,10 @@ sudo apt -y install ./zoom_amd64.deb
 
 # Install FAF
 cd ~/Applications
-curl -L -O https://github.com/FAForever/downlords-faf-client/releases/download/v2022.4.1/faf_unix_2022_4_1.tar.gz>
+curl -L -O https://github.com/FAForever/downlords-faf-client/releases/download/v2023.12.1/faf_unix_2023_12_1.tar.gz
 mkdir -p ~/faf
-tar -xf faf_unix_2022_4_1.tar.gz -C ~/faf/
+tar -xf faf_unix_2023_12_1.tar.gz -C ~/faf/
+echo -e "[Desktop Entry]\nName=FAF Client\nCategories=Games;Steam;\nTerminal=false\nExec=bash -c \"cd ~/faf/faf-client-2023.12.1; INSTALL4J_JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 ./faf-client\"\nType=Application" >> ~/.local/share/applications/faf.desktop
 
 # Install ardour
 cd ~/Applications
