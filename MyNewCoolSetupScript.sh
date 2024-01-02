@@ -4,7 +4,27 @@ sudo apt upgrade
 
 # Simple Installations
 mkdir ~/Applications/
-sudo apt -y install i3 git golang-go polybar make cmake flatpak gnome-software-plugin-flatpak meld curl xss-lock i3lock policykit-1-gnome python3-setuptools gettext gparted libfuse2 gimp jackd qjackctl wine pulseaudio-utils dconf-editor
+sudo apt -y install curl
+sudo apt -y install git
+sudo apt -y install golang-go
+sudo apt -y install make cmake
+sudo apt -y install i3
+sudo apt -y install polybar
+sudo apt -y install flatpak gnome-software-plugin-flatpak
+sudo apt -y install meld
+sudo apt -y install xss-lock
+sudo apt -y install i3lock
+sudo apt -y install policykit-1-gnome
+sudo apt -y install python3-setuptools
+sudo apt -y install gettext
+sudo apt -y install gparted
+sudo apt -y install libfuse2
+sudo apt -y install gimp
+sudo apt -y install jackd qjackctl
+sudo apt -y install wine
+sudo apt -y install pamixer playerctlv
+sudo apt -y install dconf-editor
+sudo apt -y install putty
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub md.obsidian.Obsidian
@@ -96,9 +116,9 @@ curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update
 sudo apt-get install spotify-client
+
 curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
 rm install.log
-
 cd ~/Applications
 git clone --depth=1 https://github.com/spicetify/spicetify-themes.git
 cd spicetify-themes
@@ -176,6 +196,9 @@ sudo apt -y install kdenlive
 sudo add-apt-repository -y ppa:inkscape.dev/stable
 sudo apt -y install inkscape
 
+# Install Strawberry
+sudo add-apt-repository -y ppa:jonaski/strawberry
+sudo apt -y install strawberry
 
 ##### DEBIAN PACKAGES
 cd ~/Applications/"Debian Files"
@@ -235,8 +258,9 @@ ln -s ~/PortableConfigs/kitty.conf ~/.config/kitty/kitty.conf
 mkdir  ~/.config/polybar/
 ln -s ~/PortableConfigs/config.ini ~/.config/polybar/config.ini
 ln -s ~/PortableConfigs/launch.sh ~/.config/polybar/launch.sh
-cp ~/PortableConfigs/player-mpris-tail.py ~/.config/polybar/player-mpris-tail.py
-cp ~/PortableConfigs/battery-combined-udev.sh ~/.config/polybar/battery-combined-udev.sh
+ln -s ~/PortableConfigs/player-mpris-tail.py ~/.config/polybar/player-mpris-tail.py
+ln -s ~/PortableConfigs/battery-combined-udev.sh ~/.config/polybar/battery-combined-udev.sh
+ln -s ~/PortableConfigs/volume.py ~/.config/polybar/volume.py
 sudo cp ~/PortableConfigs/95-battery.rules /etc/udev/rules.d/95-battery.rules
 
 mkdir -p ~/.config/sublime-text/Packages/User/
@@ -247,9 +271,14 @@ ln -s ~/PortableConfigs/SublimeLinter.sublime-settings ~/.config/sublime-text/Pa
 
 mkdir ~/.config/i3/
 ln -s ~/PortableConfigs/config ~/.config/i3/
+ln -s ~/PortableConfigs/micVolumeUp.sh ~/.config/i3/
 
 ln -s ~/PortableConfigs/"Where Is.txt" ~/
 
+mkdir -p "/home/flicker/.config/input-remapper-2/presets/Logitech Gaming Mouse G600/"
+ln -s ~/PortableConfigs/MousePreset.json "~/.config/input-remapper-2/presets/Logitech Gaming Mouse G600/new preset.json"
+
+ln -s ~/PortableConfigs/Xmodmap ~/.Xmodmap
 
 # TODO: mouse stuff, python-umonitor, quassel
 

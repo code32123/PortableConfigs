@@ -1,0 +1,224 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 194
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_NEXTSONG",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 193
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_PREVIOUSSONG",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 192
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key_down(KEY_LEFTALT).key(KEY_TAB).hold().key_up(KEY_LEFTALT)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 190
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_UP).key(KEY_UP).key(KEY_ENTER)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 189
+            }
+        ],
+        "target_uinput": "keyboard + mouse",
+        "output_symbol": "key_down(Control_L).w(50).key(BTN_LEFT).w(50).key_up(Control_L)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 191
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_UP).key(KEY_ENTER)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 35
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_H)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 23
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_I)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 36
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_J)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 37
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_K)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 49
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_N)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 188
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_7).w(80).key(KEY_L)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 35
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_H)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 23
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_I)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 36
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_J)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 37
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_K)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 188
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_L)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 42
+            },
+            {
+                "type": 1,
+                "code": 49
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "key(KEY_8).w(80).key(KEY_N)",
+        "mapping_type": "key_macro"
+    }
+]
