@@ -34,6 +34,7 @@ flatpak --noninteractive install flathub org.prismlauncher.PrismLauncher
 flatpak --noninteractive install flathub io.mgba.mGBA
 flatpak --noninteractive install flathub org.kde.krita
 flatpak --noninteractive install flathub org.gnome.GHex
+flatpak --noninteractive install flathub org.nickvision.tagger
 
 # System Configs
 echo -e "Section \"InputClass\"\n        Identifier \"libinput touchpad catchall\"\n        MatchIsTouchpad \"\n        MatchDevicePath \"/dev/input/event*\"\n        Driver \"libinput\"\n        Option \"NaturalScrolling\" \"True\"\n        Option \"Tapping\" \"on\"\nEndSection" | sudo tee -a /usr/share/X11/xorg.conf.d/50-libinput.conf > /dev/null

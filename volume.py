@@ -10,9 +10,12 @@ def run_pactl_command(cmd):
 	return str(cmd.stdout)
 
 def printVolumes():
-	micVol = run_pactl_command("pactl get-source-volume 50")
-	micVolList = micVol.split(" / ")
-	micVolLeft = micVolList[1].strip()
+	try:
+		micVol = run_pactl_command("pactl get-source-volume 50")
+		micVolList = micVol.split(" / ")
+		micVolLeft = micVolList[1].strip()
+	except:
+		micVolLeft = None
 
 	spkName = run_pactl_command("pactl get-default-sink")
 	spkPrefix = "" if spkName in HEADPHONES else ""
@@ -22,7 +25,7 @@ def printVolumes():
 	spkVolLeft = spkVolList[1].strip()
 
 
-	print(spkPrefix, spkVolLeft, "", micVolLeft, flush=True)
+	print(spkPrefix, spkVolLeft, (" " + micVolLeft) if micVolLeft != None else "", flush=True)
 
 printVolumes()
 with pulsectl.Pulse('event-printer') as pulse:
