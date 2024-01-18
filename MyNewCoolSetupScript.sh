@@ -25,6 +25,7 @@ sudo apt install -y install wine
 sudo apt install -y install pamixer playerctlv
 sudo apt install -y install dconf-editor
 sudo apt install -y install putty
+sudo apt install -y scrot
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub md.obsidian.Obsidian

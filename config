@@ -39,6 +39,8 @@ bindsym XF86AudioPrev exec playerctl previous
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym Print exec scrot ~/Pictures/Screenshots/%y.%m.%d_%H.%M.%S.png
+
 bindsym $mod+Return exec kitty
 
 bindsym $mod+q kill
