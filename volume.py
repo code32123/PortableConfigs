@@ -3,8 +3,28 @@ import pulsectl, subprocess
 
 HEADPHONES = [
 r"b'alsa_output.usb-Blue_Microphones_Yeti_Nano_2043SG001AM8_888-000154041006-00.analog-stereo\n'",
-r"b'alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink\n'",
 ]
+
+BuiltInAudio = r"alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink"
+
+def isHeadphones():
+	spkName = run_command("pactl get-default-sink")[2:-3]
+	if spkName in HEADPHONES:
+		return True
+	if spkName == BuiltInAudio:
+		sinks = run_command("pactl list sinks")
+		where = sinks.find(BuiltInAudio)
+		assert where != -1, "Can't find built in audio in the sink list!"
+		afterTarget = sinks[where:]
+		nextSink = afterTarget.find("Sink #")
+		target = afterTarget[:nextSink] # To end if not found (-1) or to beginning of next sink
+		portWhere = target.find("Active Port: [Out] ")
+		assert portWhere != -1, "Sink won't tell which port!"
+		portType = target[portWhere+len("Active Port: [Out] "):].split("\\n")[0]
+		if portType == "Headphones":
+			return True
+
+	return False
 
 def run_command(cmd):
 	cmd = subprocess.run(cmd, stdout = subprocess.PIPE, stderr = subprocess.DEVNULL, shell=True)
@@ -21,8 +41,7 @@ def printVolumes():
 	except:
 		micVol = None
 
-	spkName = run_command("pactl get-default-sink")
-	spkPrefix = "" if spkName in HEADPHONES else ""
+	spkPrefix = "" if isHeadphones() else ""
 
 	# spkVol = run_command("pactl get-sink-volume $(pactl get-default-sink)")
 	# spkVolList = spkVol.split(" / ")
@@ -45,7 +64,7 @@ with pulsectl.Pulse('event-printer') as pulse:
 		printVolumes()
 		### Raise PulseLoopStop for event_listen() to return before timeout (if any)
 		# raise pulsectl.PulseLoopStop
-	# pulse.event_mask_set(pulsectl.PulseEventMaskEnum.sink, pulsectl.PulseEventMaskEnum.source)
-	pulse.event_mask_set(pulsectl.PulseEventMaskEnum.all)
+	pulse.event_mask_set(pulsectl.PulseEventMaskEnum.sink, pulsectl.PulseEventMaskEnum.source)
+	# pulse.event_mask_set(pulsectl.PulseEventMaskEnum.all)
 	pulse.event_callback_set(print_events)
 	pulse.event_listen(timeout=10)
