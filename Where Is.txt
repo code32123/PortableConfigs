@@ -21,7 +21,7 @@ File Manager:
 
 Inputs:
  hwdb:			/usr/lib/udev/hwdb.d/mouse.hwdb												(systemd-hwdb update && udevadm trigger /sys/class/input/event19)
- xmodmap:		~/.Xmodmap
+ xmodmap:		~/.Xmodmap																	(xmodmap ~/.Xmodmap)
  pointing:		/usr/share/X11/xorg.conf.d/40-libinput.conf
 
 Autorun:		~/.profile
