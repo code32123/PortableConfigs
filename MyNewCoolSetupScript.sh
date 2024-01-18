@@ -97,6 +97,12 @@ sudo apt install syncthing
 sudo systemctl enable syncthing@flicker
 sudo systemctl start syncthing@flicker
 
+# Install Unison
+cd ~/Applications
+git clone https://github.com/bcpierce00/unison.git
+cd unison
+make
+
 # Install Bespokesynth
 echo 'deb http://download.opensuse.org/repositories/home:/bespokesynth/xUbuntu_23.10/ /' | sudo tee /etc/apt/sources.list.d/home:bespokesynth.list
 curl -fsSL https://download.opensuse.org/repositories/home:bespokesynth/xUbuntu_23.10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_bespokesynth.gpg > /dev/null
