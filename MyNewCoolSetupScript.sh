@@ -260,6 +260,31 @@ cd nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 nautilus -q
 
+# Install Cosmos and CosmosCLI
+sudo apt install -y dotnet-sdk-7.0
+cd ~/Applications
+mkdir Cosmos
+cd Cosmos
+git clone https://github.com/CosmosOS/Cosmos
+git clone https://github.com/CosmosOS/IL2CPU
+git clone https://github.com/CosmosOS/XSharp
+git clone https://github.com/CosmosOS/Common
+cd Cosmos
+make
+
+git clone https://github.com/PratyushKing/CosmosCLI.git
+cd CosmosCLI
+make exe
+ln -s ~/Applications/CosmosCLI/cosmos ~/bin/cosmos
+
+# Install VMWare
+cd ~/Applications
+mkdir VMWare
+cd VMWare
+wget https://download3.vmware.com/software/WKST-PLAYER-1625/VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+chmod +x VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+sudo ./VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
