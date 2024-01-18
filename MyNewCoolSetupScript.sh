@@ -4,27 +4,27 @@ sudo apt upgrade
 
 # Simple Installations
 mkdir ~/Applications/
-sudo apt -y install curl
-sudo apt -y install git
-sudo apt -y install golang-go
-sudo apt -y install make cmake
-sudo apt -y install i3
-sudo apt -y install polybar
-sudo apt -y install flatpak gnome-software-plugin-flatpak
-sudo apt -y install meld
-sudo apt -y install xss-lock
-sudo apt -y install i3lock
-sudo apt -y install policykit-1-gnome
-sudo apt -y install python3-setuptools
-sudo apt -y install gettext
-sudo apt -y install gparted
-sudo apt -y install libfuse2
-sudo apt -y install gimp
-sudo apt -y install jackd qjackctl
-sudo apt -y install wine
-sudo apt -y install pamixer playerctlv
-sudo apt -y install dconf-editor
-sudo apt -y install putty
+sudo apt install -y install curl
+sudo apt install -y install git
+sudo apt install -y install golang-go
+sudo apt install -y install make cmake
+sudo apt install -y install i3
+sudo apt install -y install polybar
+sudo apt install -y install flatpak gnome-software-plugin-flatpak
+sudo apt install -y install meld
+sudo apt install -y install xss-lock
+sudo apt install -y install i3lock
+sudo apt install -y install policykit-1-gnome
+sudo apt install -y install python3-setuptools
+sudo apt install -y install gettext
+sudo apt install -y install gparted
+sudo apt install -y install libfuse2
+sudo apt install -y install gimp
+sudo apt install -y install jackd qjackctl
+sudo apt install -y install wine
+sudo apt install -y install pamixer playerctlv
+sudo apt install -y install dconf-editor
+sudo apt install -y install putty
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak --noninteractive install org.audacityteam.Audacity
 flatpak --noninteractive install flathub md.obsidian.Obsidian
