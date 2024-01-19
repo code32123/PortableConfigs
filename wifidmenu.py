@@ -25,4 +25,4 @@ if chosenSSID == disconnect:
 	wifiDevice = [x.split(":")[0] for x in run_command("nmcli --get-values=DEVICE,TYPE --colors=no d").split("\\n") if x.split(":")[-1] == "wifi"][0]
 	run_command(f"nmcli d disconnect {wifiDevice}")
 else:
-	run_command(f"nmcli d wifi connect {chosenSSID}")
+	run_command(f"nmcli d wifi connect \"{chosenSSID}\"")
