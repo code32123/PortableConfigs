@@ -28,9 +28,8 @@ Autorun:		~/.profile
 
 i3:
  cfg:			~/.config/i3/config															(Win+Shift+R)
- i3status:		/etc/i3status.conf
- ^ music		~/.config/i3/config/i3status_music_wrapper.py
  polybar		~/.config/polybar/config.ini
+ scripts		~/.config/polybar/
 
 Kitty.conf:		~/.config/kitty/kitty.conf 													(Ctrl+Shift+F5)
 Sublime:		~/.config/sublime-text/Packages/User/
@@ -41,14 +40,15 @@ Theme color (Zorin): #BDE6FB
 Monitorcfg:
 xrandr --output DP-2 --mode 3840x2160 --left-of eDP-1
 xrandr --output DP-2 --off
+xinput map-to-output "NAME" eDP-1 (list with xinput)
 
 
 
-Keyboard Commands:
-    Alt-K        xkill
+Keyboard Commands: (These are old, just check the i3 config)
+    Alt+K        xkill
 	Win+k        rofi -show filebrowser
 	Win+Space    rofi -run-command "kitty {cmd}" -show run
 	Alt+Space    rofi -sort -sorting-method "fzf" -show drun
-	Win+T        kitty
+	Win+Enter    kitty
 
 	In InputRemapper, alt+tab: key_down(KEY_LEFTALT).key(KEY_TAB).hold().key_up(KEY_LEFTALT)
