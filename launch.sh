@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# ~/.config/polybar/launch.sh
 
 # Terminate already running bar instances
 # If all your bars have ipc enabled, you can use 
