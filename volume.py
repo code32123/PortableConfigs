@@ -35,7 +35,9 @@ def printVolumes():
 		print("%{F#707880}muted%{F-}")
 		return
 	try:
-		micVol = run_command("pactl get-source-volume alsa_input.usb-Blue_Microphones_Yeti_Nano_2043SG001AM8_888-000154041006-00.analog-stereo")
+		# Could check value with "pactl get-default-source"
+		# micVol = run_command("pactl get-source-volume alsa_input.usb-Blue_Microphones_Yeti_Nano_2043SG001AM8_888-000154041006-00.analog-stereo")
+		micVol = run_command("pactl get-source-volume @DEFAULT_SOURCE@")
 		micVolList = micVol.split(" / ")
 		micVol = micVolList[1].strip()
 	except:
