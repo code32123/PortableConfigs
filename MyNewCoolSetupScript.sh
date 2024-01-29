@@ -320,6 +320,11 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 sudo apt -y install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 pyenv install 3.8
+
+# pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
