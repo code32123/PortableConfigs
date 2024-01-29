@@ -325,6 +325,18 @@ pyenv install 3.8
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
+# Neovim
+sudo apt-get install ninja-build gettext cmake unzip curl
+cd ~/Applications
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+sudo apt install python3-neovim
+pip install pynvim --break-system-packages --upgrade
+pip install flake8 --break-system-packages
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
