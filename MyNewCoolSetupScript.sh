@@ -296,6 +296,15 @@ wget https://download3.vmware.com/software/WKST-PLAYER-1625/VMware-Player-Full-1
 chmod +x VMware-Player-Full-16.2.5-20904516.x86_64.bundle
 sudo ./VMware-Player-Full-16.2.5-20904516.x86_64.bundle
 
+# Install autorandr
+cd ~/Applications
+git clone https://github.com/phillipberndt/autorandr.git
+cd autorandr
+sudo make install
+sudo systemctl daemon-reload
+sudo systemctl enable autorandr.service
+sudo systemctl enable autorandr-lid-listener.service
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
