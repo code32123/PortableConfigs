@@ -3,11 +3,9 @@ set $mod Mod4
 
 font pango:monospace 8
 
+
+# STARTUP EXECS
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-exec umonitor --listen --daemonize
-
-bindsym $mod+e exec nautilus
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
@@ -15,13 +13,19 @@ exec xsetroot -solid "#000000"
 
 exec /home/flicker/Applications/unison/src/unison -copyonconflict -repeat watch -prefer newer /home/flicker/Desktop/Ghost/Docs /home/flicker/ObsidianVault/All/Projects/Ghost
 
-bindsym $mod+i exec ~/PortableConfigs/wifidmenu.py
-
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 2F243A
+
+exec --no-startup-id nm-applet
+
+exec xmodmap ~/.Xmodmap
+# END EXECS
+
 
 bindsym Control+$mod+l exec "loginctl lock-session"
 
-exec --no-startup-id nm-applet
+bindsym $mod+i exec ~/PortableConfigs/wifidmenu.py
+
+bindsym $mod+e exec nautilus
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
