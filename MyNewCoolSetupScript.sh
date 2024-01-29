@@ -9,7 +9,6 @@ sudo apt install -y install git
 sudo apt install -y install golang-go
 sudo apt install -y install make cmake
 sudo apt install -y install i3
-sudo apt install -y install polybar
 sudo apt install -y install flatpak gnome-software-plugin-flatpak
 sudo apt install -y install meld
 sudo apt install -y install xss-lock
@@ -60,6 +59,17 @@ mkdir ~/bin/
 ln -s ~/Applications/kitty/kitty/launcher/kitty ~/bin/kitty
 
 echo -e "[Desktop Entry]\nName=Kitty\nExec=/home/flicker/Applications/kitty/kitty/launcher/kitty\nGenericName=Terminal Emulator\nType=Application\nTerminal=false\nIcon=/home/flicker/Applications/kitty/kitty/launcher/kitty.ico\n" >> ~/.local/share/applications/kitty.desktop
+
+# Install polybar
+cd ~/Applications
+sudo apt install build-essential git cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libjsoncpp-dev libnl-genl-3-dev
+git clone https://github.com/polybar/polybar.git --recursive
+cd polybar
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+sudo make install
 
 # Install Github Desktop & VS Code
 mkdir ~/Applications/"Debian Files"
