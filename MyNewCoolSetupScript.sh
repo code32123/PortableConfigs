@@ -26,6 +26,7 @@ sudo apt install -y install dconf-editor
 sudo apt install -y install putty
 sudo apt install -y scrot
 sudo apt install -y brightnessctl
+sudo apt install -y libreoffice
 sudo usermod -aG video flicker
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
