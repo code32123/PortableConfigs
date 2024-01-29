@@ -4,26 +4,26 @@ sudo apt upgrade
 
 # Simple Installations
 mkdir ~/Applications/
-sudo apt install -y install curl
-sudo apt install -y install git
-sudo apt install -y install golang-go
-sudo apt install -y install make cmake
-sudo apt install -y install i3
-sudo apt install -y install flatpak gnome-software-plugin-flatpak
-sudo apt install -y install meld
-sudo apt install -y install xss-lock
-sudo apt install -y install i3lock
-sudo apt install -y install policykit-1-gnome
-sudo apt install -y install python3-setuptools
-sudo apt install -y install gettext
-sudo apt install -y install gparted
-sudo apt install -y install libfuse2
-sudo apt install -y install gimp
-sudo apt install -y install jackd qjackctl
-sudo apt install -y install wine
-sudo apt install -y install pamixer playerctlv
-sudo apt install -y install dconf-editor
-sudo apt install -y install putty
+sudo apt install -y curl
+sudo apt install -y git
+sudo apt install -y golang-go
+sudo apt install -y make cmake
+sudo apt install -y i3
+sudo apt install -y flatpak gnome-software-plugin-flatpak
+sudo apt install -y meld
+sudo apt install -y xss-lock
+sudo apt install -y i3lock
+sudo apt install -y policykit-1-gnome
+sudo apt install -y python3-setuptools
+sudo apt install -y gettext
+sudo apt install -y gparted
+sudo apt install -y libfuse2
+sudo apt install -y gimp
+sudo apt install -y jackd qjackctl
+sudo apt install -y wine
+sudo apt install -y pamixer playerctlv
+sudo apt install -y dconf-editor
+sudo apt install -y putty
 sudo apt install -y scrot
 sudo apt install -y brightnessctl
 sudo apt install -y libreoffice
