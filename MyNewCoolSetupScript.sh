@@ -27,6 +27,7 @@ sudo apt install -y putty
 sudo apt install -y scrot
 sudo apt install -y brightnessctl
 sudo apt install -y libreoffice
+sudo apt install -y celluloid
 sudo usermod -aG video flicker
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -39,6 +40,7 @@ flatpak --noninteractive install flathub io.mgba.mGBA
 flatpak --noninteractive install flathub org.kde.krita
 flatpak --noninteractive install flathub org.gnome.GHex
 flatpak --noninteractive install flathub org.nickvision.tagger
+flatpak --noninteractive install flathub org.kde.kasts
 
 # System Configs
 echo -e "Section \"InputClass\"\n        Identifier \"libinput touchpad catchall\"\n        MatchIsTouchpad \"\n        MatchDevicePath \"/dev/input/event*\"\n        Driver \"libinput\"\n        Option \"NaturalScrolling\" \"True\"\n        Option \"Tapping\" \"on\"\nEndSection" | sudo tee -a /usr/share/X11/xorg.conf.d/50-libinput.conf > /dev/null
