@@ -34,6 +34,10 @@ i3:
 Kitty.conf:		~/.config/kitty/kitty.conf 													(Ctrl+Shift+F5)
 Sublime:		~/.config/sublime-text/Packages/User/
 
+Web Dashboards:
+ Duplicati:     http://localhost:8200/ngax/index.html#/
+ Syncthing:     http://localhost:8384/ (jim, U7 iirc)
+
 Notes:
 Theme color (Zorin): #BDE6FB
 

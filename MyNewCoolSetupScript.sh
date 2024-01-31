@@ -247,6 +247,22 @@ sudo apt -y install ./aimp.deb
 wget "https://zoom.us/client/5.17.1.1840/zoom_amd64.deb"
 sudo apt -y install ./zoom_amd64.deb
 
+# Install Duplicati
+wget "https://updates.duplicati.com/beta/duplicati_2.0.7.1-1_all.deb"
+sudo apt -y install ./duplicati_2.0.7.1-1_all.deb
+echo -e "duplicati\n" > ~/post-setup.txt
+echo -e "  Name:       Flicker\n" > ~/post-setup.txt
+echo -e "  Encryption: No Encryption\n" > ~/post-setup.txt
+echo -e "  Location:   /media/flicker/Storage/Duplicati/\n" > ~/post-setup.txt
+echo -e "  Source:     /media/flicker/Desktop/\n" > ~/post-setup.txt
+echo -e "  Source:     /media/flicker/ObsidianVault/\n" > ~/post-setup.txt
+echo -e "  Source:     /media/flicker/Pictures/\n" > ~/post-setup.txt
+echo -e "  Source:     /media/flicker/Stanford/\n" > ~/post-setup.txt
+echo -e "  Source:     /home/flicker/.config/\n" > ~/post-setup.txt
+echo -e "  Schedule:   Automatic, 1:00AM, Daily\n" > ~/post-setup.txt
+echo -e "  Retention:  Smart\n" > ~/post-setup.txt
+
+
 # Install FAF
 cd ~/Applications
 curl -L -O https://github.com/FAForever/downlords-faf-client/releases/download/v2023.12.1/faf_unix_2023_12_1.tar.gz
