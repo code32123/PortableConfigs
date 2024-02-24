@@ -18,6 +18,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 2F243A
 exec --no-startup-id nm-applet
 
 exec xmodmap ~/.Xmodmap
+exec input-remapper-control --command autoload
 # END EXECS
 
 
