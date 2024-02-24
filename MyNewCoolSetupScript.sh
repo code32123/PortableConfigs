@@ -31,6 +31,7 @@ sudo apt install -y celluloid
 sudo apt install -y picom
 sudo apt install -y virtualbox
 sudo usermod -a -G vboxusers flicker
+sudo apt install -y joystick
 sudo usermod -aG video flicker
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
