@@ -318,13 +318,13 @@ cd CosmosCLI
 make exe
 ln -s ~/Applications/CosmosCLI/cosmos ~/bin/cosmos
 
-# Install VMWare
-cd ~/Applications
-mkdir VMWare
-cd VMWare
-wget https://download3.vmware.com/software/WKST-PLAYER-1625/VMware-Player-Full-16.2.5-20904516.x86_64.bundle
-chmod +x VMware-Player-Full-16.2.5-20904516.x86_64.bundle
-sudo ./VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+# Install VMWare (Removed, premisions errors on launch)
+# cd ~/Applications
+# mkdir VMWare
+# cd VMWare
+# wget https://download3.vmware.com/software/WKST-PLAYER-1625/VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+# chmod +x VMware-Player-Full-16.2.5-20904516.x86_64.bundle
+# sudo ./VMware-Player-Full-16.2.5-20904516.x86_64.bundle
 
 # Install autorandr
 cd ~/Applications
