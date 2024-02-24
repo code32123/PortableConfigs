@@ -254,6 +254,10 @@ sudo apt -y install ./aimp.deb
 wget "https://zoom.us/client/5.17.1.1840/zoom_amd64.deb"
 sudo apt -y install ./zoom_amd64.deb
 
+# Install lutris
+wget "https://github.com/lutris/lutris/releases/download/v0.5.16/lutris_0.5.16_all.deb"
+sudo apt -y install ./lutris_0.5.16_all.deb
+
 # Install Duplicati
 wget "https://updates.duplicati.com/beta/duplicati_2.0.7.1-1_all.deb"
 sudo apt -y install ./duplicati_2.0.7.1-1_all.deb
