@@ -32,6 +32,7 @@ sudo apt install -y picom
 sudo apt install -y virtualbox
 sudo usermod -a -G vboxusers flicker
 sudo apt install -y joystick
+sudo apt install -y sane sane-utils xsane
 sudo usermod -aG video flicker
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
