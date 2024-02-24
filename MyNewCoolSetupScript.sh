@@ -355,17 +355,41 @@ pyenv install 3.8
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
-# Neovim
-sudo apt-get install ninja-build gettext cmake unzip curl
+# Neovim # Removed : Not used
+# sudo apt-get install ninja-build gettext cmake unzip curl
+# cd ~/Applications
+# git clone https://github.com/neovim/neovim
+# cd neovim
+# git checkout stable
+# make CMAKE_BUILD_TYPE=RelWithDebInfo
+# sudo make install
+# sudo apt install python3-neovim
+# pip install pynvim --break-system-packages --upgrade
+# pip install flake8 --break-system-packages
+
+# Bluetooth # Removed : Not scriptable
+# sudo systemctl enable --now bluetooth
+# cd Applications
+# Link is borken
+# curl -sSL https://nightly.link/kaii-lb/overskride/workflows/main/v0.5.4/overskride-nightly-x86_64.zip -o overskride-nightly.zip
+# unzip overskride-nightly.zip
+# sudo flatpak install -y overskride-nightly.flatpak
+
+# Trying out zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+echo -e 'eval "$(zoxide init bash)"\n' >> ~/.bashrc
+
+# Whisper
+pip install --break-system-packages openai-whisper
+
+# godot
 cd ~/Applications
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-sudo apt install python3-neovim
-pip install pynvim --break-system-packages --upgrade
-pip install flake8 --break-system-packages
+mkdir godot
+cd godot
+wget https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_linux.x86_64.zip
+unzip Godot_v4.2.1-stable_linux.x86_64.zip
+rm Godot_v4.2.1-stable_linux.x86_64.zip
+echo -e "[Desktop Entry]\nName=godot\nExec=/home/flicker/Applications/godot/Godot_v4.2.1-stable_linux.x86_64\nCategories=game;engine;3D\nTerminal=false\nType=Application" >> ~/.local/share/applications/godot.desktop
 
 # Install configs
 cd ~/
