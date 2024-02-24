@@ -288,6 +288,7 @@ cd ardour
 sudo apt -y install python3-pip python-is-python3 libboost-dev libalsa-ocaml-dev libglibmm-2.4-dev libsndfile1-dev libcurl-ocaml-dev libarchive-dev liblo-dev libtaglib-ocaml-dev vamp-plugin-sdk librubberband-dev clang libaubio-dev libcppunit-dev libwebsockets-dev libclang-dev libudev-dev libpulse-dev libusb-1.0-0-dev libpangomm-1.4-dev liblrdf0-dev lv2-dev libserd-dev libsord-dev libsratom-dev liblilv-dev libsuil-dev libgtkmm-2.4-dev
 ./waf configure
 ./waf
+sudo ./waf install
 ./waf clean
 echo -e "[Desktop Entry]\nName=Ardour\nExec=/usr/local/bin/ardour8\nCategories=DAW;Audio;Music;Midi\nTerminal=false\nType=Application" >> ~/.local/share/applications/ardour.desktop
 
