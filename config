@@ -17,7 +17,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 2F243A
 
 exec --no-startup-id nm-applet
 
-exec xmodmap ~/.Xmodmap
+exec /usr/bin/xmodmap /home/flicker/.Xmodmap
 exec xrandr --output DP-2 --mode 3840x2160 --left-of eDP-1
 exec input-remapper-control --command autoload
 
