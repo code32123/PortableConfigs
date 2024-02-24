@@ -6,7 +6,6 @@ Packages:		~/Applcations/
 Exeutables:		/usr/local/bin/
 Desktop:		/home/flicker/.local/share/applications/
 				/usr/share/applications
-	(Flathub)	/var/lib/flatpak/app/io.lmms.LMMS/current/active/files/share/applications/
 
 Variables:		/etc/environment
 
