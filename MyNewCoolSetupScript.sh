@@ -29,6 +29,8 @@ sudo apt install -y brightnessctl
 sudo apt install -y libreoffice
 sudo apt install -y celluloid
 sudo apt install -y picom
+sudo apt install -y virtualbox
+sudo usermod -a -G vboxusers flicker
 sudo usermod -aG video flicker
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
