@@ -375,6 +375,13 @@ pyenv install 3.8
 # unzip overskride-nightly.zip
 # sudo flatpak install -y overskride-nightly.flatpak
 
+# Jetbrains Toolbox / PyCharm # Removed : Not scriptable
+# Manual, download from https://www.jetbrains.com/toolbox-app/ to ./Applications
+# cd ~/Applications
+# tar -xzf jetbrains-toolbox-*.tar.gz -C ./
+# rm jetbrains-toolbox-*.tar.gz
+# echo -e "[Desktop Entry]\nName=Jetbrains Toolbox\nExec=/home/flicker/Applications/jetbrains-toolbox-*/jetbrains-toolbox\nCategories=IDE;code;python;\nTerminal=false\nType=Application" >> ~/.local/share/applications/jetbrains-toolbox.desktop
+
 # Trying out zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 echo -e 'eval "$(zoxide init bash)"\n' >> ~/.bashrc
