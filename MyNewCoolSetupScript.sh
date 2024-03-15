@@ -391,6 +391,24 @@ unzip Godot_v4.2.1-stable_linux.x86_64.zip
 rm Godot_v4.2.1-stable_linux.x86_64.zip
 echo -e "[Desktop Entry]\nName=godot\nExec=/home/flicker/Applications/godot/Godot_v4.2.1-stable_linux.x86_64\nCategories=game;engine;3D\nTerminal=false\nType=Application" >> ~/.local/share/applications/godot.desktop
 
+# TiLP
+cd ~/Applications
+mkdir TiLP
+cd TiLP
+wget http://lpg.ticalc.org/prj_tilp/download/install_tilp.sh
+chmod +x install_tilp.sh
+sudo apt install build-essential git autoconf automake autopoint libtool libtool-bin libglib2.0-dev zlib1g-dev libusb-1.0-0-dev libgtk2.0-dev libglade2-dev gettext bison flex groff texinfo xdg-utils libarchive-dev intltool
+./install_tilp.sh
+
+# BurbSuite
+cd ~/Applications
+wget 'https://portswigger.net/burp/releases/startdownload?product=community&version=2024.1.1.4&type=Linux' -O burpsuite.sh
+chmod +x burpsuite.sh
+./burpsuite.sh
+
+
+
+
 # Install configs
 cd ~/
 git clone https://github.com/code32123/PortableConfigs.git
