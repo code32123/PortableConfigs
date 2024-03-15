@@ -352,8 +352,8 @@ sudo apt -y install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline
 pyenv install 3.8
 
 # pyenv-virtualenv
-git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+# git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+# echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 # Neovim # Removed : Not used
 # sudo apt-get install ninja-build gettext cmake unzip curl
