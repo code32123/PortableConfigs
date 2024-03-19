@@ -34,6 +34,7 @@ sudo usermod -a -G vboxusers flicker
 sudo apt install -y joystick
 sudo apt install -y sane sane-utils xsane
 sudo usermod -aG video flicker
+sudo apt install -y gtkpod
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak --noninteractive install org.audacityteam.Audacity
